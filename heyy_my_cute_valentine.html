@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heyy My Cute Valentine</title>
+  <style>
+    /* Basic Reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Background - Gradient and Mesh Effect */
+    body {
+      background: linear-gradient(45deg, #f56b6b, #ff8da0);
+      background-size: 400% 400%;
+      animation: gradientBackground 10s ease infinite;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glittering, Twinkling Stars */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/45-degree-fabric.png');
+      background-size: 10px 10px;
+      opacity: 0.2;
+      animation: glitter 2s infinite alternate;
+    }
+
+    @keyframes glitter {
+      0% { opacity: 0.2; }
+      50% { opacity: 0.7; }
+      100% { opacity: 0.2; }
+    }
+
+    /* Flying Birds Animation */
+    .bird {
+      position: absolute;
+      width: 60px;
+      animation: birdFly 15s linear infinite;
+    }
+
+    @keyframes birdFly {
+      0% { left: -60px; top: 25%; }
+      100% { left: 100%; top: 50%; }
+    }
+
+    /* Mailbox and Animation */
+    .mailbox {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      cursor: pointer;
+      animation: mailboxBounce 1s infinite alternate;
+    }
+
+    @keyframes mailboxBounce {
+      0% { transform: translateX(-50%) translateY(0); }
+      100% { transform: translateX(-50%) translateY(-15px); }
+    }
+
+    /* Vintage Letter Animation */
+    .vintage-letter {
+      position: absolute;
+      bottom: -500px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 300px;
+      background-color: #b89a6e; /* Coffee Color */
+      background-image: url('https://www.transparenttextures.com/patterns/fabric.png');
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Note Styling */
+    .note {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2em;
+      color: black;
+      background-color: #fff;
+      padding: 25px;
+      width: 80%;
+      display: none;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    /* Highlighted Words */
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      font-size: 2em;
+      color: red;
+      animation: heartFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes heartFloat {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Final Floating Effect for Heart */
+    .heart-1 { top: 20%; left: 5%; animation-delay: 0s; }
+    .heart-2 { top: 40%; left: 15%; animation-delay: 0.5s; }
+    .heart-3 { top: 60%; left: 30%; animation-delay: 1s; }
+
+    /* Text Effects */
+    .message-box {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2em;
+      color: #ff5c8e;
+      text-align: center;
+      animation: textFadeIn 3s ease-out infinite;
+    }
+
+    @keyframes textFadeIn {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Glittering Stars -->
+  <div class="stars"></div>
+
+  <!-- Flying Birds -->
+  <div class="bird" style="top: 10%; left: 5%;">
+    <img src="https://example.com/bird.png" alt="Bird">
+  </div>
+  <div class="bird" style="top: 30%; left: 15%;">
+    <img src="https://example.com/bird.png" alt="Bird">
+  </div>
+  <div class="bird" style="top: 50%; left: 30%;">
+    <img src="https://example.com/bird.png" alt="Bird">
+  </div>
+
+  <!-- Floating Hearts -->
+  <div class="heart heart-1">❤️</div>
+  <div class="heart heart-2">❤️</div>
+  <div class="heart heart-3">❤️</div>
+
+  <!-- Mailbox -->
+  <div class="mailbox" onclick="showLetter()">
+    <img src="https://example.com/mailbox.png" alt="Mailbox">
+  </div>
+
+  <!-- Vintage Letter (Hidden initially) -->
+  <div class="vintage-letter"></div>
+
+  <!-- Message Box -->
+  <div class="message-box">
+    <p>Heyy My Cute Valentine ❤️</p>
+    <p>I love you more than words can express!</p>
+  </div>
+
+  <!-- Note inside the vintage letter -->
+  <div class="note">
+    <p>
+      Babe, I love you so freaking much. Honestly, I don’t even know how to explain it. Sometimes, I mess up and make mistakes, but I want to fix them all. I want to be your support system, like you’ve been mine. You’ve been my rock, supporting me for so long. And the best part? You actually <span class="highlight">get</span> me. That’s all I need. Nothing else matters. It’s just you... and us.
+      <br><br>
+      So, Miss Chaand <3 :)
+      <br><br>
+      We first met on April 22, and slowly, a beautiful friendship started. At first, we just talked in the GC, but then our convos moved to my private DMs, and we’d joke around on TL. Over time, we became close—really close. You were the first girl I ever talked to this much. I could open up to you, and you did the same with me. And for that, I’m so grateful.
+      <br><br>
+      Then you pulled me onto Insta, and that’s when we got even closer. You added me to your GC, and yeah, I left later after asking you, but by then, I was already feeling so comfortable with you. Slowly, we kept getting closer and closer, and at some point—I don’t even know when—I just knew. I wanted to see you happy, to see you get everything you deserve. But you were stuck in your own struggles, and I just wanted to be there for you.
+      <br><br>
+      And then, at the perfect time, we both confessed. And now, we’re here. We’ve had fights, we’ve had moments where it felt like this wouldn’t be easy—but we made it through. And we will always make it through. No matter what happens, I’m here. Always.
+      <br><br>
+      Thank you for making my life so freaking beautiful.
+      <br><br>
+      I love you, forever.
+    </p>
+  </div>
+
+  <script>
+    // Function to show letter and note when mailbox is clicked
+    function showLetter() {
+      document.querySelector('.vintage-letter').style.opacity = 1;
+      document.querySelector('.vintage-letter').style.transition = "opacity 1s ease";
+      document.querySelector('.vintage-letter').style.animation = "letterFly 5s ease forwards";
+      setTimeout(function() {
+        document.querySelector('.note').style.display = 'block';
+        document.querySelector('.note').style.animation = 'fadeIn 4s ease-in-out';
+      }, 5000); // Show note after letter flies in
+    }
+  </script>
+
+</body>
+</html>
